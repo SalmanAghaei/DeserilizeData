@@ -11,14 +11,10 @@ namespace Application.CommandHandlers;
 
 public class PersonDeleteCommandHandler : IRequestHandler<PersonDeleteCommand, ServiceResult>
 {
-    readonly ISerializer _serializerProvider;
-    readonly IPersonCommandRepository _personRepository;
     readonly IPersonSalaryCommandRepository _personSalaryRepository;
-    public PersonDeleteCommandHandler(IPersonCommandRepository personRepository, IPersonSalaryCommandRepository personSalaryRepository, ISerializer serializerProvider)
+    public PersonDeleteCommandHandler(IPersonCommandRepository personRepository, IPersonSalaryCommandRepository personSalaryRepository)
     {
-        _personRepository = personRepository;
         _personSalaryRepository = personSalaryRepository;
-        _serializerProvider = serializerProvider;
     }
 
 
