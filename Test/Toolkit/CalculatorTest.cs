@@ -15,8 +15,13 @@ namespace Test.Toolkit
         public void Calculate()
         {
             CalculatorA calculatorA = new();
-            var act=calculatorA.Calculate(5_300_000, 1_000_000, 500_000, 0);
-            act.Should().Be(13_100_000);
+            decimal basicSalary = 5_300_000;
+            decimal allowance = 1_000_000;
+            decimal transportation = 500_000;
+            decimal tax = 0;
+
+            var act=calculatorA.Calculate(basicSalary, allowance, transportation, tax);
+            act.Should().Be((basicSalary+ allowance+ transportation)+(basicSalary + allowance)-(tax));
         }
     }
 }
